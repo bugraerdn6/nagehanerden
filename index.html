@@ -13,6 +13,7 @@
     --wine: #6E3B4F;
     --copper: #A85C34;
     --sage: #75805F;
+    --night: #241329;
     --border: rgba(43,31,34,0.14);
     --border-strong: rgba(43,31,34,0.26);
   }
@@ -47,26 +48,50 @@
     font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage);
   }
 
-  /* Hero */
-  .hero { padding: 5rem 0 3.5rem; text-align: center; border-bottom: 1px solid var(--border); }
-  .hero .eyebrow { display: block; margin-bottom: 1.25rem; }
+  /* Hero — dusk gradient, deliberately fixed regardless of viewer theme */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 1.5rem 6.5rem;
+    text-align: center;
+    background: linear-gradient(180deg, var(--night) 0%, var(--wine) 62%, var(--copper) 100%);
+    color: #F8EDE3;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: 8%;
+    width: 180px; height: 180px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,231,190,0.95), rgba(255,231,190,0.15) 70%, transparent 72%);
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 8%;
+    height: 1px;
+    background: rgba(248,237,227,0.28);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero .eyebrow { display: block; margin-bottom: 1.25rem; color: #E7C9B8; }
   .hero h1 {
     font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
     font-weight: 500; font-size: clamp(2rem, 6vw, 3rem);
-    letter-spacing: -0.01em; margin: 0 0 1rem; text-wrap: balance; color: var(--wine);
+    letter-spacing: -0.01em; margin: 0 0 1rem; text-wrap: balance; color: #F8EDE3;
   }
-  .hero h1 .tld { color: var(--copper); font-style: italic; }
+  .hero h1 .tld { color: #F3C89A; font-style: italic; }
   .hero .tagline {
-    font-size: 1.05rem; color: var(--text-soft); max-width: 42ch; margin: 0 auto 2.25rem;
+    font-size: 1.05rem; color: rgba(248,237,227,0.82); max-width: 42ch; margin: 0 auto 2.25rem;
   }
   .cta {
     display: inline-flex; align-items: center; gap: 0.6rem;
-    padding: 0.9rem 1.75rem; border-radius: 999px; background: var(--copper);
-    color: #FBF3EA; font-weight: 600; font-size: 0.95rem; text-decoration: none;
+    padding: 0.9rem 1.75rem; border-radius: 999px; background: #F3C89A;
+    color: #241329; font-weight: 600; font-size: 0.95rem; text-decoration: none;
   }
-  .cta .handle { font-weight: 400; opacity: 0.85; }
+  .cta .handle { font-weight: 400; opacity: 0.75; }
   .hero .placeholder-note {
-    margin-top: 1rem; font-size: 0.75rem; color: var(--text-soft); font-style: italic;
+    margin-top: 1rem; font-size: 0.75rem; color: rgba(248,237,227,0.6); font-style: italic;
   }
 
   section { padding: 3.25rem 0; border-bottom: 1px solid var(--border); }
@@ -97,6 +122,10 @@
   .promise-list li::before { content: "◦"; color: var(--copper); font-size: 1.2rem; line-height: 1.1; }
 
   .cta-block { text-align: center; padding: 2rem 0 0; }
+  .cta-block .cta {
+    background: var(--copper); color: #FBF3EA;
+  }
+  .cta-block .cta .handle { opacity: 0.85; }
 
   footer.doc-foot {
     padding-top: 2.5rem; font-size: 0.78rem; color: var(--text-soft); text-align: center;
@@ -105,15 +134,17 @@
 </head>
 <body>
 
-<div class="page">
-  <header class="hero">
+<header class="hero">
+  <div class="hero-inner">
     <span class="eyebrow">Yoga · Spiritüel Danışmanlık · Kişisel Gelişim Koçluğu</span>
     <h1>nagehanerden<span class="tld">.com.tr</span></h1>
     <p class="tagline">Bedeninle temas kur, sezgine güven, kendi ritmini bul.</p>
     <a class="cta" href="#">Instagram'da Takip Et <span class="handle">@kullaniciadi</span></a>
     <p class="placeholder-note">Instagram kullanıcı adı yer tutucudur — gerçek hesap gelince güncellenecek.</p>
-  </header>
+  </div>
+</header>
 
+<div class="page">
   <section class="bio">
     <div class="section-head"><span class="eyebrow">Merhaba</span><h2>Kısa hikayem</h2></div>
     <p>Yıllar önce kendi arayışım bir yoga matının üzerinde başladı. Bugün bu yolculuğu başkalarıyla paylaşıyorum — yoga dersleri, sezgisel rehberlik ve bire bir görüşmelerle, insanların kendi içlerindeki sessizliğe dönmelerine eşlik ediyorum.</p>
