@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoga & Spiritüel Rehberlik — Kişisel Sayfa</title>
+<style>
+  :root {
+    --bg: #F1E7DE;
+    --bg-alt: #F8F1EA;
+    --text: #2B1F22;
+    --text-soft: #6B5A57;
+    --wine: #6E3B4F;
+    --copper: #A85C34;
+    --sage: #75805F;
+    --border: rgba(43,31,34,0.14);
+    --border-strong: rgba(43,31,34,0.26);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #201619; --bg-alt: #2A1E21; --text: #F1E7DE; --text-soft: #C4B3AE;
+      --wine: #D999B1; --copper: #E0A06C; --sage: #A7B18E;
+      --border: rgba(241,231,222,0.14); --border-strong: rgba(241,231,222,0.24);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #201619; --bg-alt: #2A1E21; --text: #F1E7DE; --text-soft: #C4B3AE;
+    --wine: #D999B1; --copper: #E0A06C; --sage: #A7B18E;
+    --border: rgba(241,231,222,0.14); --border-strong: rgba(241,231,222,0.24);
+  }
+  :root[data-theme="light"] {
+    --bg: #F1E7DE; --bg-alt: #F8F1EA; --text: #2B1F22; --text-soft: #6B5A57;
+    --wine: #6E3B4F; --copper: #A85C34; --sage: #75805F;
+    --border: rgba(43,31,34,0.14); --border-strong: rgba(43,31,34,0.26);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .page { max-width: 720px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage);
+  }
+
+  /* Hero */
+  .hero { padding: 5rem 0 3.5rem; text-align: center; border-bottom: 1px solid var(--border); }
+  .hero .eyebrow { display: block; margin-bottom: 1.25rem; }
+  .hero h1 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-weight: 500; font-size: clamp(2rem, 6vw, 3rem);
+    letter-spacing: -0.01em; margin: 0 0 1rem; text-wrap: balance; color: var(--wine);
+  }
+  .hero h1 .tld { color: var(--copper); font-style: italic; }
+  .hero .tagline {
+    font-size: 1.05rem; color: var(--text-soft); max-width: 42ch; margin: 0 auto 2.25rem;
+  }
+  .cta {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.9rem 1.75rem; border-radius: 999px; background: var(--copper);
+    color: #FBF3EA; font-weight: 600; font-size: 0.95rem; text-decoration: none;
+  }
+  .cta .handle { font-weight: 400; opacity: 0.85; }
+  .hero .placeholder-note {
+    margin-top: 1rem; font-size: 0.75rem; color: var(--text-soft); font-style: italic;
+  }
+
+  section { padding: 3.25rem 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  .section-head { margin-bottom: 1.5rem; }
+  .section-head h2 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-weight: 500; font-size: 1.5rem; margin: 0.4rem 0 0; color: var(--text);
+  }
+
+  .bio p { max-width: 60ch; font-size: 1rem; margin: 0 0 1.1rem; }
+  .bio p:last-child { margin-bottom: 0; }
+
+  .services { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+  @media (min-width: 620px) { .services { grid-template-columns: repeat(3, 1fr); } }
+  .service-card {
+    background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.5rem 1.4rem;
+  }
+  .service-card h3 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-weight: 500; font-size: 1.05rem; margin: 0 0 0.6rem; color: var(--wine);
+  }
+  .service-card p { margin: 0; font-size: 0.88rem; color: var(--text-soft); }
+
+  .promise-list { list-style: none; margin: 0 0 2rem; padding: 0; display: flex; flex-direction: column; gap: 0.85rem; max-width: 50ch; }
+  .promise-list li { display: flex; gap: 0.75rem; font-size: 0.96rem; }
+  .promise-list li::before { content: "◦"; color: var(--copper); font-size: 1.2rem; line-height: 1.1; }
+
+  .cta-block { text-align: center; padding: 2rem 0 0; }
+
+  footer.doc-foot {
+    padding-top: 2.5rem; font-size: 0.78rem; color: var(--text-soft); text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="hero">
+    <span class="eyebrow">Yoga · Spiritüel Danışmanlık · Kişisel Gelişim Koçluğu</span>
+    <h1>nagehanerden<span class="tld">.com.tr</span></h1>
+    <p class="tagline">Bedeninle temas kur, sezgine güven, kendi ritmini bul.</p>
+    <a class="cta" href="#">Instagram'da Takip Et <span class="handle">@kullaniciadi</span></a>
+    <p class="placeholder-note">Instagram kullanıcı adı yer tutucudur — gerçek hesap gelince güncellenecek.</p>
+  </header>
+
+  <section class="bio">
+    <div class="section-head"><span class="eyebrow">Merhaba</span><h2>Kısa hikayem</h2></div>
+    <p>Yıllar önce kendi arayışım bir yoga matının üzerinde başladı. Bugün bu yolculuğu başkalarıyla paylaşıyorum — yoga dersleri, sezgisel rehberlik ve bire bir görüşmelerle, insanların kendi içlerindeki sessizliğe dönmelerine eşlik ediyorum.</p>
+    <p>Amacım mükemmel bir pratik öğretmek değil; senin kendi ritmini, kendi hakikatini bulmana alan açmak.</p>
+  </section>
+
+  <section class="services">
+    <div class="section-head" style="grid-column: 1/-1;"><span class="eyebrow">Neler Sunuyorum</span><h2>Çalışma alanlarım</h2></div>
+    <div class="service-card">
+      <h3>Online Yoga Dersleri</h3>
+      <p>Evinden, kendi hızında bir pratik. Haftalık canlı veya kayıtlı derslerle bedenle yeniden temas.</p>
+    </div>
+    <div class="service-card">
+      <h3>Spiritüel Danışmanlık</h3>
+      <p>Sezgisel rehberlik seansları — hazır cevaplar değil, kendi cevabını duyabileceğin bir alan.</p>
+    </div>
+    <div class="service-card">
+      <h3>Kişisel Gelişim Koçluğu</h3>
+      <p>Bire bir görüşmelerle hayatının nerede tıkandığını görmek ve küçük, gerçek adımlar atmak.</p>
+    </div>
+  </section>
+
+  <section class="instagram">
+    <div class="section-head"><span class="eyebrow">Instagram'da</span><h2>Beni takip edersen ne bulursun</h2></div>
+    <ul class="promise-list">
+      <li>Haftalık nefes ve meditasyon pratikleri</li>
+      <li>Canlı yayınlarda soru-cevap</li>
+      <li>Gerçek dönüşüm anları ve gözlemler</li>
+      <li>Küçük hatırlatmalar, büyük farkındalıklar</li>
+    </ul>
+    <div class="cta-block">
+      <a class="cta" href="#">Instagram'da Takip Et <span class="handle">@kullaniciadi</span></a>
+    </div>
+  </section>
+
+  <footer class="doc-foot">
+    Bu sayfa bir taslaktır — isim, Instagram hesabı ve bio metni gerçek bilgilerle güncellenmelidir.
+  </footer>
+</div>
+</body>
+</html>
