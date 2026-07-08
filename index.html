@@ -268,7 +268,35 @@ section { position: relative; }
   max-width: 720px;
   margin: 0 auto;
 }
+.sec-inner--wide { max-width: 980px; }
 .sec.sand { background: var(--sand); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 130px;
+  grid-auto-flow: dense;
+  gap: 0.7rem;
+  margin-top: 2.5rem;
+}
+.g-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.g-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.94) contrast(1.02);
+}
+.g-tall { grid-row: span 2; }
+.g-wide { grid-column: span 2; }
+@media (max-width: 720px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 110px; }
+  .g-wide { grid-column: span 2; }
+}
 .sec.ivory { background: var(--ivory); }
 
 .pull {
@@ -601,6 +629,29 @@ footer .fine {
       <li>Nefes Çalışmaları</li>
       <li>Çakra Aktivasyonu</li>
     </ul>
+  </div>
+</section>
+
+<section class="sec ivory reveal" id="anlar">
+  <div class="bloom bloom-green bloom--r-top" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--sm bloom--l-bot" aria-hidden="true"></div>
+  <div class="sec-inner sec-inner--wide">
+    <span class="eyebrow">Anlar</span>
+    <h2>Bunun pratikte<br><em>nasıl göründüğü</em>.</h2>
+    <div class="gallery-grid">
+      <div class="g-item g-tall"><img src="images/gallery/anlar-01.jpg" loading="lazy" alt="Mum ışığında meditasyon çemberi"></div>
+      <div class="g-item g-wide"><img src="images/gallery/anlar-02.jpg" loading="lazy" alt="Göl kenarında açık hava yoga etkinliği"></div>
+      <div class="g-item"><img src="images/gallery/anlar-03.jpg" loading="lazy" alt="Ses kasesiyle rehberlik"></div>
+      <div class="g-item"><img src="images/gallery/anlar-04.jpg" loading="lazy" alt="Katılımcı not tutarken"></div>
+      <div class="g-item g-tall"><img src="images/gallery/anlar-05.jpg" loading="lazy" alt="Akşam meditasyonu"></div>
+      <div class="g-item"><img src="images/gallery/anlar-06.jpg" loading="lazy" alt="Meditasyon çemberi hazırlığı"></div>
+      <div class="g-item g-wide"><img src="images/gallery/anlar-07.jpg" loading="lazy" alt="Bahçede akşam buluşması"></div>
+      <div class="g-item"><img src="images/gallery/anlar-08.jpg" loading="lazy" alt="Mum ve çiçeklerle hazırlanmış ritüel sofrası"></div>
+      <div class="g-item"><img src="images/gallery/anlar-09.jpg" loading="lazy" alt="Nagehan gülümserken"></div>
+      <div class="g-item g-tall"><img src="images/gallery/anlar-10.jpg" loading="lazy" alt="Ses banyosu seansı"></div>
+      <div class="g-item"><img src="images/gallery/anlar-11.jpg" loading="lazy" alt="Kart ve çiçeklerle kurulan çember"></div>
+      <div class="g-item g-wide"><img src="images/gallery/anlar-12.jpg" loading="lazy" alt="Eğitmenlik sertifika töreni"></div>
+    </div>
   </div>
 </section>
 
