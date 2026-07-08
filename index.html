@@ -119,6 +119,25 @@ body {
   text-decoration: none;
   font-weight: 600;
 }
+.nav-right { display: flex; align-items: center; gap: 1.25rem; }
+.nav-ig {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  background: var(--copper);
+  color: var(--ivory);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.nav-ig:hover { transform: translateY(-1px); }
+@media (prefers-reduced-motion: reduce) {
+  .nav-ig:hover { transform: none; }
+}
 .nav .menu-toggle {
   background: none;
   border: none;
@@ -447,17 +466,23 @@ section { position: relative; }
 .btn-outline {
   display: inline-block;
   margin-top: 2.25rem;
-  padding: 0.9rem 2.2rem;
-  border: 1px solid rgba(237,231,217,0.4);
-  color: var(--midnight-text);
+  padding: 1rem 2.6rem;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: var(--midnight);
   font-family: 'Manrope', sans-serif;
-  font-size: 0.85rem;
+  font-weight: 600;
+  font-size: 0.9rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: background 0.4s ease, color 0.4s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
 }
-.btn-outline:hover { background: var(--midnight-text); color: var(--midnight); }
+.btn-outline:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.3); }
+@media (prefers-reduced-motion: reduce) {
+  .btn-outline:hover { transform: none; }
+}
 
 /* ---------- Footer ---------- */
 footer {
@@ -498,7 +523,10 @@ footer .fine {
 
 <nav class="nav">
   <a class="mark" href="#top">Nagehan Erden</a>
-  <button class="menu-toggle" id="menuOpen">Menü</button>
+  <div class="nav-right">
+    <a class="nav-ig" href="https://www.instagram.com/nagehanerden.yoga" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <button class="menu-toggle" id="menuOpen">Menü</button>
+  </div>
 </nav>
 
 <div class="menu-overlay" id="menuOverlay">
