@@ -122,11 +122,14 @@ body {
   text-decoration: none;
   font-weight: 600;
 }
-.mark-icon { width: 22px; height: 26px; flex-shrink: 0; }
-.mark-icon .mi-body { fill: none; stroke: var(--forest); stroke-width: 3; }
-.mark-icon .mi-crown { fill: var(--forest); }
-.mark-icon .mi-leaf { fill: var(--sage); }
-.mark-icon .mi-seed { fill: var(--copper); }
+.mark-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: 50% 35%;
+  border-radius: 50%;
+}
 .nav-right { display: flex; align-items: center; gap: 1.25rem; }
 .nav-ig {
   display: inline-block;
@@ -225,7 +228,18 @@ section { position: relative; }
   padding: 8rem 1.5rem 6rem;
   background: var(--ivory);
 }
+.hero-emblem {
+  position: relative;
+  z-index: 2;
+  width: clamp(170px, 20vw, 240px);
+  height: auto;
+  margin: 0 0 2rem;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(38,51,36,0.25);
+}
 .hero h1 {
+  position: relative;
+  z-index: 2;
   font-family: 'Cormorant Garamond', serif;
   font-weight: 400;
   font-style: italic;
@@ -634,21 +648,7 @@ footer .fine {
 
 <nav class="nav">
   <a class="mark" href="#top">
-    <svg class="mark-icon" viewBox="0 0 100 120" aria-hidden="true">
-      <path class="mi-leaf" d="M60,16 C71,10 80,15 82,26 C72,26 62,23 58,16 Z"/>
-      <path class="mi-leaf" d="M64,22 C74,18 82,23 84,32 C75,32 66,29 63,23 Z"/>
-      <path class="mi-crown" d="M37,23 L44,4 L47,23 Z"/>
-      <path class="mi-crown" d="M45,23 L50,2 L55,23 Z"/>
-      <path class="mi-crown" d="M53,23 L58,5 L61,23 Z"/>
-      <path class="mi-body" d="M50,21 C74,21 89,44 89,68 C89,94 71,110 50,110 C29,110 11,94 11,68 C11,44 26,21 50,21 Z"/>
-      <circle class="mi-seed" cx="36" cy="54" r="3"/>
-      <circle class="mi-seed" cx="50" cy="46" r="3"/>
-      <circle class="mi-seed" cx="63" cy="55" r="3"/>
-      <circle class="mi-seed" cx="42" cy="68" r="3"/>
-      <circle class="mi-seed" cx="58" cy="70" r="3"/>
-      <circle class="mi-seed" cx="48" cy="83" r="3"/>
-      <circle class="mi-seed" cx="63" cy="82" r="2.5"/>
-    </svg>
+    <img class="mark-icon" src="images/mark-pomegranate.jpg" alt="">
     <span>Nagehan Erden</span>
   </a>
   <div class="nav-right">
@@ -679,6 +679,7 @@ footer .fine {
   <div class="bloom bloom-green bloom--sm bloom--l-mid" aria-hidden="true"></div>
   <div class="bloom bloom-green bloom--lg bloom--l-bot" aria-hidden="true"></div>
   <div class="bloom bloom-green bloom--sm bloom--r-bot" aria-hidden="true"></div>
+  <img class="hero-emblem" src="images/mark-pomegranate.jpg" alt="Nagehan Erden amblemi — içinde küçük bir köy sahnesi olan nar illüstrasyonu" loading="eager">
   <h1>Burada, hiçbir şey olmana gerek yok.</h1>
   <div class="scroll-hint" aria-hidden="true"></div>
 </header>
