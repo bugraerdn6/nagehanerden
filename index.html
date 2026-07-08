@@ -384,6 +384,19 @@ section { position: relative; }
 .sec.midnight .eyebrow { color: var(--gold); }
 .sec.midnight h2 { color: var(--midnight-text); }
 .sec.midnight p.body { color: rgba(237,231,217,0.75); margin: 0 auto; }
+.sec.midnight .pull { color: var(--midnight-text); }
+
+.badge {
+  width: 250px; height: 250px;
+  margin: 2.25rem auto 2.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba(243,238,223,0.32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.badge .pull { margin: 0; font-size: 1.3rem; }
 .btn-outline {
   display: inline-block;
   margin-top: 2.25rem;
@@ -462,11 +475,13 @@ footer .fine {
   <div class="scroll-hint" aria-hidden="true"></div>
 </header>
 
-<section class="sec sand reveal">
+<section class="sec midnight reveal" style="text-align:center;">
   <div class="sec-inner">
     <span class="eyebrow">Felsefe</span>
-    <p class="pull">Kimse başka biri olmaz.<br>Sadece kim olduğunu hatırlar.</p>
-    <p class="body">Bu, bir gelişim programı değil. Daha iyi bir versiyonun peşinde koşman gereken bir yer değil burası. Sadece, zaten var olanın üstündeki gürültüyü azaltmak için bir alan.</p>
+    <div class="badge">
+      <p class="pull">Kimse başka biri olmaz.<br>Sadece kim olduğunu hatırlar.</p>
+    </div>
+    <p class="body" style="margin:0 auto;">Bu, bir gelişim programı değil. Daha iyi bir versiyonun peşinde koşman gereken bir yer değil burası. Sadece, zaten var olanın üstündeki gürültüyü azaltmak için bir alan.</p>
   </div>
 </section>
 
