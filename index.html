@@ -278,43 +278,76 @@ section { position: relative; }
 .tool-list li:not(:last-child)::after { content: "·"; margin: 0 0.9rem; color: var(--stone); }
 
 /* ---------- Practices ---------- */
-.practice-list { margin-top: 2.5rem; }
-.practice-row {
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+@media (max-width: 760px) { .practice-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .practice-grid { grid-template-columns: 1fr; } }
+
+.practice-card {
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 1.5rem;
-  padding: 1.75rem 0;
-  border-top: 1px solid var(--stone);
+  min-height: 210px;
+  padding: 1.75rem 1.5rem;
+  border-radius: 20px;
   text-decoration: none;
-  color: inherit;
+  transition: transform 0.4s ease;
 }
-.practice-row:last-child { border-bottom: 1px solid var(--stone); }
-.practice-row .p-title {
+.practice-card:hover { transform: translateY(-4px); }
+@media (prefers-reduced-motion: reduce) {
+  .practice-card:hover { transform: none; }
+}
+.practice-card.tone-dark { background: var(--midnight); color: var(--midnight-text); }
+.practice-card.tone-mid { background: var(--copper); color: var(--ivory); }
+.practice-card.tone-pale { background: var(--clay); color: var(--forest); }
+
+.p-icon {
+  position: relative;
+  width: 38px; height: 38px;
+  margin-bottom: 1.25rem;
+}
+.p-icon::before, .p-icon::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.88;
+}
+.ic-a::before { width: 26px; height: 26px; top: 0; left: 0; }
+.ic-a::after  { width: 16px; height: 16px; bottom: 0; right: 2px; opacity: 0.5; }
+.ic-b::before { width: 32px; height: 32px; top: 2px; left: 2px; opacity: 0.35; }
+.ic-b::after  { width: 14px; height: 14px; top: 12px; left: 12px; }
+.ic-c::before { width: 20px; height: 20px; top: 0; left: 9px; }
+.ic-c::after  { width: 20px; height: 20px; bottom: 0; left: 9px; opacity: 0.45; }
+.ic-d::before { width: 28px; height: 28px; top: 0; right: 0; opacity: 0.5; }
+.ic-d::after  { width: 20px; height: 20px; bottom: 2px; left: 0; }
+.ic-e::before { width: 16px; height: 16px; top: 2px; left: 2px; }
+.ic-e::after  { width: 16px; height: 16px; bottom: 2px; right: 2px; opacity: 0.55; }
+
+.p-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
-  color: var(--forest);
-  flex: 0 0 auto;
-  min-width: 11ch;
+  font-size: 1.35rem;
+  margin: 0 0 0.4rem;
 }
-.practice-row .p-desc {
-  font-size: 0.92rem;
-  color: var(--forest-soft);
-  flex: 1;
+.p-desc {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  max-width: 24ch;
 }
-.practice-row .p-arrow {
+.p-arrow {
+  align-self: flex-end;
   font-family: 'Manrope', sans-serif;
   font-size: 0.85rem;
-  color: var(--sage);
-  transition: transform 0.4s ease, color 0.4s ease;
-  white-space: nowrap;
+  margin-top: 1.25rem;
+  transition: transform 0.4s ease;
 }
-.practice-row:hover .p-arrow { color: var(--copper); transform: translateX(4px); }
+.practice-card:hover .p-arrow { transform: translateX(4px); }
 @media (prefers-reduced-motion: reduce) {
-  .practice-row:hover .p-arrow { transform: none; }
-}
-@media (max-width: 560px) {
-  .practice-row { flex-direction: column; gap: 0.5rem; }
+  .practice-card:hover .p-arrow { transform: none; }
 }
 
 /* ---------- Journal ---------- */
@@ -441,7 +474,7 @@ footer .fine {
   <div class="sec-inner">
     <img class="portrait" src="images/nagehan.jpg" alt="Nagehan Erden" />
     <span class="eyebrow">Yolculuk</span>
-    <h2>Merhaba,<br>ben Nagehan.</h2>
+    <h2>Merhaba,<br>ben <em>Nagehan</em>.</h2>
     <p class="body">Yolum müzikle başladı — yıllarca bir soprano olarak sahnede yer aldım. Sonra on iki yıl sağlık sektöründe yöneticilik yaptım, ta ki yoga hayatıma girene kadar. Kısa sürede bunun bir meslek değil, bir yaşam biçimi olduğunu anladım.</p>
     <p class="body">Bugün kendi stüdyomda, Çorlu Belediyesi'nde ve bir spor salonunda ders veriyor; Yin Yoga, Hamak Yoga, Access Bars, nefes çalışmaları ve çakra aktivasyonu üzerine çalışıyor, yeni eğitmenler yetiştiriyorum. Ama bütün bunların ötesinde vermek istediğim tek bir şey var: aşk. Yoga benim için bedenin esnemesi değil; kalbe yaklaşmak ve özündeki sevgiyi yeniden hatırlamak.</p>
     <p class="body">Sayfamda kusursuz bir hayat göstermiyorum — makyajsız hâlimi de, sessizliğimi de paylaşıyorum, çünkü gerçek bağ doğallıktan geçer. Kızım Ada ve kedilerim Firuze ile Leyla, bu yolculuğun en tatlı eşlikçileri.</p>
@@ -458,29 +491,34 @@ footer .fine {
 <section class="sec sand reveal" id="pratikler">
   <div class="sec-inner">
     <span class="eyebrow">Pratikler</span>
-    <h2>Farklı kapılar,<br>aynı içeri.</h2>
-    <div class="practice-list">
-      <a class="practice-row" href="#">
+    <h2>Farklı kapılar,<br><em>aynı içeri</em>.</h2>
+    <div class="practice-grid">
+      <a class="practice-card tone-dark" href="#">
+        <span class="p-icon ic-a" aria-hidden="true"></span>
         <span class="p-title">Meditasyonlar</span>
         <span class="p-desc">Rehberli oturuşlar; sessizliğe alışmak için.</span>
         <span class="p-arrow">→</span>
       </a>
-      <a class="practice-row" href="#">
+      <a class="practice-card tone-mid" href="#">
+        <span class="p-icon ic-b" aria-hidden="true"></span>
         <span class="p-title">Nefes Kütüphanesi</span>
         <span class="p-desc">Bedeni sakinleştiren, düzenleyen nefes çalışmaları.</span>
         <span class="p-arrow">→</span>
       </a>
-      <a class="practice-row" href="#">
+      <a class="practice-card tone-pale" href="#">
+        <span class="p-icon ic-c" aria-hidden="true"></span>
         <span class="p-title">Yoga</span>
         <span class="p-desc">Bir egzersiz değil; bedenle kurulan bir sohbet.</span>
         <span class="p-arrow">→</span>
       </a>
-      <a class="practice-row" href="#">
+      <a class="practice-card tone-mid" href="#">
+        <span class="p-icon ic-d" aria-hidden="true"></span>
         <span class="p-title">İnzivalar</span>
         <span class="p-desc">Gündelik hayattan çekilip, kendine dönmek için günler.</span>
         <span class="p-arrow">→</span>
       </a>
-      <a class="practice-row" href="#">
+      <a class="practice-card tone-dark" href="#">
+        <span class="p-icon ic-e" aria-hidden="true"></span>
         <span class="p-title">Akademi</span>
         <span class="p-desc">Bu yolu başkalarına da taşımak isteyenler için.</span>
         <span class="p-arrow">→</span>
@@ -492,7 +530,7 @@ footer .fine {
 <section class="sec ivory reveal" id="defter">
   <div class="sec-inner">
     <span class="eyebrow">İdrak Defteri</span>
-    <h2>Ders notları değil;<br>düşünce parçaları.</h2>
+    <h2>Ders notları değil;<br><em>düşünce parçaları</em>.</h2>
     <div class="journal-list">
       <div class="journal-entry">
         <span class="eyebrow j-eyebrow">Farkındalık</span>
@@ -513,7 +551,7 @@ footer .fine {
 <section class="sec midnight reveal" id="uyelik">
   <div class="sec-inner">
     <span class="eyebrow">Üyelik</span>
-    <h2>Bir platforma değil,<br>bir topluluğa katıl.</h2>
+    <h2>Bir platforma değil,<br><em>bir topluluğa</em> katıl.</h2>
     <p class="body">Üyelik, içerik satın almak değildir. Aynı yolda ilerleyen insanlarla, düzenli buluşmalarla ve birlikte tutulan bir alanla — kalıcı bir bağ kurmaktır.</p>
     <a class="btn-outline" href="#">Topluluğa Katıl</a>
   </div>
