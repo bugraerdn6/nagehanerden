@@ -221,21 +221,25 @@ section { position: relative; }
 .bloom {
   content: "";
   position: absolute;
-  width: 50vw;
-  height: 50vw;
-  max-width: 560px;
-  max-height: 560px;
+  width: 42vw;
+  height: 42vw;
+  max-width: 460px;
+  max-height: 460px;
   border-radius: 50%;
-  filter: blur(55px);
+  filter: blur(50px);
   pointer-events: none;
   z-index: -1;
 }
-.bloom-green { background: radial-gradient(circle, rgba(79,93,58,0.24), transparent 72%); }
-.bloom-white { background: radial-gradient(circle, rgba(243,238,223,0.34), transparent 72%); }
-.bloom--tr { top: -16%; right: -12%; }
-.bloom--bl { bottom: -16%; left: -12%; }
-.bloom--tl { top: -16%; left: -12%; }
-.bloom--br { bottom: -16%; right: -12%; }
+.bloom-green { background: radial-gradient(circle, rgba(79,93,58,0.4), transparent 70%); }
+.bloom-white { background: radial-gradient(circle, rgba(243,238,223,0.5), transparent 70%); }
+.bloom--sm { width: 26vw; height: 26vw; max-width: 280px; max-height: 280px; }
+.bloom--lg { width: 54vw; height: 54vw; max-width: 580px; max-height: 580px; }
+.bloom--l-top { top: 0%; left: -16%; }
+.bloom--l-mid { top: 38%; left: -20%; }
+.bloom--l-bot { bottom: 2%; left: -14%; }
+.bloom--r-top { top: 6%; right: -18%; }
+.bloom--r-mid { top: 46%; right: -16%; }
+.bloom--r-bot { bottom: -4%; right: -20%; }
 .sec-inner {
   max-width: 720px;
   margin: 0 auto;
@@ -514,14 +518,16 @@ footer .fine {
 </div>
 
 <header class="hero" id="top">
-  <div class="bloom bloom-green bloom--tr" aria-hidden="true"></div>
-  <div class="bloom bloom-green bloom--bl" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--r-top" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--sm bloom--l-mid" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--lg bloom--l-bot" aria-hidden="true"></div>
   <h1>Burada, hiçbir şey olmana gerek yok.</h1>
   <div class="scroll-hint" aria-hidden="true"></div>
 </header>
 
 <section class="sec midnight reveal" style="text-align:center;">
-  <div class="bloom bloom-white bloom--tl" aria-hidden="true"></div>
+  <div class="bloom bloom-white bloom--l-top" aria-hidden="true"></div>
+  <div class="bloom bloom-white bloom--sm bloom--r-mid" aria-hidden="true"></div>
   <div class="sec-inner">
     <span class="eyebrow">Felsefe</span>
     <div class="badge">
@@ -532,7 +538,9 @@ footer .fine {
 </section>
 
 <section class="sec ivory reveal" id="yolculuk">
-  <div class="bloom bloom-green bloom--tr" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--r-top" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--sm bloom--l-top" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--r-bot" aria-hidden="true"></div>
   <div class="sec-inner">
     <img class="portrait" src="images/nagehan.jpg" alt="Nagehan Erden" />
     <span class="eyebrow">Yolculuk</span>
@@ -562,7 +570,9 @@ footer .fine {
 </section>
 
 <section class="sec sand reveal" id="pratikler">
-  <div class="bloom bloom-green bloom--bl" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--l-mid" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--sm bloom--r-top" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--lg bloom--l-bot" aria-hidden="true"></div>
   <div class="sec-inner">
     <span class="eyebrow">Pratikler</span>
     <h2>Farklı kapılar,<br><em>aynı içeri</em>.</h2>
@@ -602,7 +612,9 @@ footer .fine {
 </section>
 
 <section class="sec ivory reveal" id="defter">
-  <div class="bloom bloom-green bloom--br" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--r-mid" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--sm bloom--l-top" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--l-bot" aria-hidden="true"></div>
   <div class="sec-inner">
     <span class="eyebrow">İdrak Defteri</span>
     <h2>Ders notları değil;<br><em>düşünce parçaları</em>.</h2>
@@ -624,7 +636,9 @@ footer .fine {
 </section>
 
 <section class="sec midnight reveal" id="uyelik">
-  <div class="bloom bloom-white bloom--br" aria-hidden="true"></div>
+  <div class="bloom bloom-white bloom--r-top" aria-hidden="true"></div>
+  <div class="bloom bloom-white bloom--sm bloom--l-mid" aria-hidden="true"></div>
+  <div class="bloom bloom-white bloom--l-bot" aria-hidden="true"></div>
   <div class="sec-inner">
     <span class="eyebrow">Üyelik</span>
     <h2>Bir platforma değil,<br><em>bir topluluğa</em> katıl.</h2>
