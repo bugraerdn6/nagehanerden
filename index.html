@@ -346,6 +346,21 @@ section { position: relative; }
   color: var(--forest);
   text-align: center;
 }
+.ilk-esik { padding: clamp(6rem, 15vw, 10rem) 1.5rem; }
+.ilk-esik h2 { font-size: clamp(2.4rem, 6vw, 3.4rem); }
+.ilk-esik .t-day { width: 46px; height: 46px; font-size: 1rem; }
+.ilk-esik .t-word { font-size: 1.25rem; }
+.ilk-esik .pull { font-size: clamp(1.5rem, 3.5vw, 2rem); }
+.threshold-cta { margin-top: 3rem; }
+.threshold-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.threshold-cta-buttons .btn-outline { margin-top: 0; }
+.btn-copper { background: var(--copper); border-color: var(--copper); color: var(--ivory); }
+
 @media (max-width: 680px) {
   .threshold-steps { flex-direction: column; align-items: stretch; gap: 1.1rem; margin-top: 2.25rem; }
   .threshold-steps::before { display: none; }
@@ -643,6 +658,32 @@ footer .fine {
   <div class="scroll-hint" aria-hidden="true"></div>
 </header>
 
+<section class="sec sand reveal ilk-esik" id="ilk-esik">
+  <div class="bloom bloom-green bloom--r-mid" aria-hidden="true"></div>
+  <div class="bloom bloom-green bloom--sm bloom--l-top" aria-hidden="true"></div>
+  <div class="sec-inner sec-inner--wide" style="text-align:center;">
+    <span class="eyebrow">İlk Eşik</span>
+    <h2>7 Günlük <em>Yolculuk</em></h2>
+    <div class="threshold-steps">
+      <div class="t-step"><span class="t-day">1</span><span class="t-word">Dur</span></div>
+      <div class="t-step"><span class="t-day">2</span><span class="t-word">Beden</span></div>
+      <div class="t-step"><span class="t-day">3</span><span class="t-word">Nefes</span></div>
+      <div class="t-step"><span class="t-day">4</span><span class="t-word">Kalp</span></div>
+      <div class="t-step"><span class="t-day">5</span><span class="t-word">İdrak</span></div>
+      <div class="t-step"><span class="t-day">6</span><span class="t-word">Teslimiyet</span></div>
+      <div class="t-step"><span class="t-day">7</span><span class="t-word">Aşk</span></div>
+    </div>
+    <p class="pull" style="margin:2.5rem auto 0;">Yedi gün, yedi durak, tek bir yolculuk.<br>Kendinden kendine doğru...</p>
+    <div class="threshold-cta">
+      <p class="body" style="margin:0 auto 1.5rem;">Instagram'dan takip et ve topluluğa katıl — bu 7 günlük programa katılım hakkı kazan.</p>
+      <div class="threshold-cta-buttons">
+        <a class="btn-outline btn-copper" href="https://www.instagram.com/nagehanerden.yoga" target="_blank" rel="noopener noreferrer">Instagram'da Takip Et</a>
+        <a class="btn-outline" href="https://chat.whatsapp.com/DtI4ILEV9bRHPWf8JPdxKs" target="_blank" rel="noopener noreferrer">Topluluğa Katıl</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec midnight reveal" style="text-align:center;">
   <div class="bloom bloom-white bloom--l-top" aria-hidden="true"></div>
   <div class="bloom bloom-white bloom--sm bloom--r-mid" aria-hidden="true"></div>
@@ -749,25 +790,6 @@ footer .fine {
         <span class="p-arrow">→</span>
       </a>
     </div>
-  </div>
-</section>
-
-<section class="sec sand reveal" id="ilk-esik">
-  <div class="bloom bloom-green bloom--r-mid" aria-hidden="true"></div>
-  <div class="bloom bloom-green bloom--sm bloom--l-top" aria-hidden="true"></div>
-  <div class="sec-inner sec-inner--wide" style="text-align:center;">
-    <span class="eyebrow">İlk Eşik</span>
-    <h2>7 Günlük <em>Yolculuk</em></h2>
-    <div class="threshold-steps">
-      <div class="t-step"><span class="t-day">1</span><span class="t-word">Dur</span></div>
-      <div class="t-step"><span class="t-day">2</span><span class="t-word">Beden</span></div>
-      <div class="t-step"><span class="t-day">3</span><span class="t-word">Nefes</span></div>
-      <div class="t-step"><span class="t-day">4</span><span class="t-word">Kalp</span></div>
-      <div class="t-step"><span class="t-day">5</span><span class="t-word">İdrak</span></div>
-      <div class="t-step"><span class="t-day">6</span><span class="t-word">Teslimiyet</span></div>
-      <div class="t-step"><span class="t-day">7</span><span class="t-word">Aşk</span></div>
-    </div>
-    <p class="pull" style="margin:2.5rem auto 0;">Yedi gün, yedi durak, tek bir yolculuk.<br>Kendinden kendine doğru...</p>
   </div>
 </section>
 
