@@ -111,6 +111,9 @@ body {
   mix-blend-mode: normal;
 }
 .nav .mark {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: 'Manrope', sans-serif;
   font-size: 0.82rem;
   letter-spacing: 0.14em;
@@ -119,6 +122,11 @@ body {
   text-decoration: none;
   font-weight: 600;
 }
+.mark-icon { width: 22px; height: 26px; flex-shrink: 0; }
+.mark-icon .mi-body { fill: none; stroke: var(--forest); stroke-width: 3; }
+.mark-icon .mi-crown { fill: var(--forest); }
+.mark-icon .mi-leaf { fill: var(--sage); }
+.mark-icon .mi-seed { fill: var(--copper); }
 .nav-right { display: flex; align-items: center; gap: 1.25rem; }
 .nav-ig {
   display: inline-block;
@@ -625,7 +633,24 @@ footer .fine {
 <body>
 
 <nav class="nav">
-  <a class="mark" href="#top">Nagehan Erden</a>
+  <a class="mark" href="#top">
+    <svg class="mark-icon" viewBox="0 0 100 120" aria-hidden="true">
+      <path class="mi-leaf" d="M60,16 C71,10 80,15 82,26 C72,26 62,23 58,16 Z"/>
+      <path class="mi-leaf" d="M64,22 C74,18 82,23 84,32 C75,32 66,29 63,23 Z"/>
+      <path class="mi-crown" d="M37,23 L44,4 L47,23 Z"/>
+      <path class="mi-crown" d="M45,23 L50,2 L55,23 Z"/>
+      <path class="mi-crown" d="M53,23 L58,5 L61,23 Z"/>
+      <path class="mi-body" d="M50,21 C74,21 89,44 89,68 C89,94 71,110 50,110 C29,110 11,94 11,68 C11,44 26,21 50,21 Z"/>
+      <circle class="mi-seed" cx="36" cy="54" r="3"/>
+      <circle class="mi-seed" cx="50" cy="46" r="3"/>
+      <circle class="mi-seed" cx="63" cy="55" r="3"/>
+      <circle class="mi-seed" cx="42" cy="68" r="3"/>
+      <circle class="mi-seed" cx="58" cy="70" r="3"/>
+      <circle class="mi-seed" cx="48" cy="83" r="3"/>
+      <circle class="mi-seed" cx="63" cy="82" r="2.5"/>
+    </svg>
+    <span>Nagehan Erden</span>
+  </a>
   <div class="nav-right">
     <a class="nav-ig" href="https://www.instagram.com/nagehanerden.yoga" target="_blank" rel="noopener noreferrer">Instagram</a>
     <a class="nav-ig nav-community" href="https://chat.whatsapp.com/DtI4ILEV9bRHPWf8JPdxKs" target="_blank" rel="noopener noreferrer">Topluluk</a>
