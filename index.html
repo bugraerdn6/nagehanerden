@@ -138,6 +138,11 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .nav-ig:hover { transform: none; }
 }
+.nav-community { background: var(--gold); color: var(--midnight); }
+@media (max-width: 560px) {
+  .nav-right { gap: 0.6rem; }
+  .nav-ig { padding: 0.42rem 0.8rem; font-size: 0.64rem; }
+}
 .nav .menu-toggle {
   background: none;
   border: none;
@@ -525,6 +530,7 @@ footer .fine {
   <a class="mark" href="#top">Nagehan Erden</a>
   <div class="nav-right">
     <a class="nav-ig" href="https://www.instagram.com/nagehanerden.yoga" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a class="nav-ig nav-community" href="https://chat.whatsapp.com/DtI4ILEV9bRHPWf8JPdxKs" target="_blank" rel="noopener noreferrer">Topluluk</a>
     <button class="menu-toggle" id="menuOpen">Menü</button>
   </div>
 </nav>
