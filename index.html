@@ -417,6 +417,55 @@ section { position: relative; }
   filter: saturate(0.94) contrast(1.02);
 }
 
+.esik-video-wrap {
+  position: relative;
+  width: min(300px, 78%);
+  aspect-ratio: 3 / 4;
+  margin: 0 auto 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 10px solid var(--copper);
+  box-shadow: 0 24px 60px rgba(26, 26, 20, 0.28);
+  cursor: pointer;
+}
+.esik-video-wrap video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.esik-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--copper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+.esik-play::before {
+  content: "";
+  border-style: solid;
+  border-width: 9px 0 9px 15px;
+  border-color: transparent transparent transparent var(--ivory);
+  margin-left: 4px;
+}
+.esik-video-wrap.playing .esik-play { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+.esik-video-wrap:not(.playing)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 26, 20, 0.15);
+}
+
 .sec h2 {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 400;
@@ -687,6 +736,12 @@ footer .fine {
   <div class="bloom bloom-green bloom--r-mid" aria-hidden="true"></div>
   <div class="bloom bloom-green bloom--sm bloom--l-top" aria-hidden="true"></div>
   <div class="sec-inner sec-inner--wide" style="text-align:center;">
+    <div class="esik-video-wrap" id="esikVideoWrap">
+      <video id="esikVideo" playsinline preload="metadata" poster="images/ilk-esik-kapak.jpg">
+        <source src="videos/ilk-esik.mp4" type="video/mp4">
+      </video>
+      <span class="esik-play" aria-hidden="true"></span>
+    </div>
     <span class="eyebrow">İlk Eşik</span>
     <h2>7 Günlük <em>Yolculuk</em></h2>
     <div class="threshold-steps">
@@ -877,6 +932,17 @@ footer .fine {
   overlay.querySelectorAll('a').forEach(function(a) {
     a.addEventListener('click', function() { overlay.classList.remove('open'); });
   });
+
+  var videoWrap = document.getElementById('esikVideoWrap');
+  var esikVideo = document.getElementById('esikVideo');
+  if (videoWrap && esikVideo) {
+    videoWrap.addEventListener('click', function() {
+      if (esikVideo.paused) { esikVideo.play(); } else { esikVideo.pause(); }
+    });
+    esikVideo.addEventListener('play', function() { videoWrap.classList.add('playing'); });
+    esikVideo.addEventListener('pause', function() { videoWrap.classList.remove('playing'); });
+    esikVideo.addEventListener('ended', function() { videoWrap.classList.remove('playing'); });
+  }
 
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var items = document.querySelectorAll('.reveal');
