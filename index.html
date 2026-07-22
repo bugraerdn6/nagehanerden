@@ -481,45 +481,6 @@ section { position: relative; }
   background: rgba(26, 26, 20, 0.15);
 }
 
-.esik-countdown {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  margin: 0 auto 2.75rem;
-}
-.esik-countdown-badge {
-  width: 108px;
-  height: 108px;
-  border-radius: 50%;
-  border: 2px solid var(--copper);
-  background: var(--ivory);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-}
-.esik-countdown-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.6rem;
-  color: var(--forest);
-}
-.esik-countdown-label {
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--forest-soft);
-  margin-top: 0.15rem;
-}
-.esik-countdown-date {
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
-  color: var(--sage);
-}
-
 .sec h2 {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 400;
@@ -796,13 +757,6 @@ footer .fine {
       </video>
       <span class="esik-play" aria-hidden="true"></span>
     </div>
-    <div class="esik-countdown" id="esikCountdown">
-      <div class="esik-countdown-badge">
-        <span class="esik-countdown-num" id="esikCountdownNum">–</span>
-        <span class="esik-countdown-label" id="esikCountdownLabel">gün kaldı</span>
-      </div>
-      <span class="esik-countdown-date">1. Eşik Programı · 21 Temmuz</span>
-    </div>
     <span class="eyebrow">İlk Eşik</span>
     <h2>7 Günlük <em>Yolculuk</em></h2>
     <div class="threshold-steps">
@@ -1003,28 +957,6 @@ footer .fine {
     esikVideo.addEventListener('play', function() { videoWrap.classList.add('playing'); });
     esikVideo.addEventListener('pause', function() { videoWrap.classList.remove('playing'); });
     esikVideo.addEventListener('ended', function() { videoWrap.classList.remove('playing'); });
-  }
-
-  var countdownNum = document.getElementById('esikCountdownNum');
-  var countdownLabel = document.getElementById('esikCountdownLabel');
-  if (countdownNum && countdownLabel) {
-    var target = new Date(2026, 6, 21, 0, 0, 0);
-    var now = new Date();
-    var startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    var daysLeft = Math.round((target - startOfToday) / 86400000);
-    if (daysLeft > 0) {
-      countdownNum.textContent = daysLeft;
-      countdownLabel.textContent = daysLeft === 1 ? 'gün kaldı' : 'gün kaldı';
-    } else if (daysLeft === 0) {
-      countdownNum.textContent = '';
-      countdownNum.style.fontSize = '1.3rem';
-      countdownNum.textContent = 'Bugün';
-      countdownLabel.textContent = 'başlıyor';
-    } else {
-      countdownNum.style.fontSize = '1.2rem';
-      countdownNum.textContent = 'Yolculuk';
-      countdownLabel.textContent = 'başladı';
-    }
   }
 
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
